@@ -8,19 +8,17 @@ aspas = "%s" %("'")
 virgula = "%s" %(",")
 contador = 0
 
-for linhas in arquivo:
-    contador = contador + 1
-total = contador
-contador = 0
+total = sum(1 for linha in arquivo)
 arquivo.seek(0)
 
 for linhas in arquivo:
-    contador = contador + 1
+    contador += 1
     linhas = linhas.rstrip()
-    while contador != total:
+    if not contador != total:
+        linhas = aspas + linhas + aspas
+    else:    
         linhas = aspas + linhas + aspas + virgula
-        break
-    linhas = aspas + linhas + aspas # Ultimo registro sem a virgula
+
     escreve.write(linhas + "\n")
 
 print ('----------------------------------------')
