@@ -10,12 +10,18 @@ contador = 0
 
 for linhas in arquivo:
     contador = contador + 1
+total = contador
+contador = 0
+arquivo.seek(0)
+
+for linhas in arquivo:
+    contador = contador + 1
     linhas = linhas.rstrip()
-    linhas = aspas + linhas + aspas + virgula
-    #linhas = "{0}{1}{2}{3}" .format (aspas, linhas, aspas, virgula)
+    while contador != total:
+        linhas = aspas + linhas + aspas + virgula
+        break
+    linhas = aspas + linhas + aspas # Ultimo registro sem a virgula
     escreve.write(linhas + "\n")
-    #print (linhas)
-#escreve.write(linhas[-50:-1].replace(",", ""))
 
 print ('----------------------------------------')
 print ('Registros lidos: ' + str(contador))
