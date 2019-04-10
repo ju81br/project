@@ -4,3 +4,5 @@ maça
 abacaxi
 banana
 graviola
+jabuticaba
+acerola
