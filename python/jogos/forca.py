@@ -1,5 +1,6 @@
 import random
 
+
 def jogar():
 
     imprime_abertura()
@@ -13,17 +14,10 @@ def jogar():
     erros    = 0
 
     while(not enforcou and not acertou):
-        chute = input("Entre uma letra: ")
-        chute = chute.strip().upper()
+        chute = pede_chute()
 
         if (chute in palavra_secreta):
-            index = 0
-            for letra in palavra_secreta:
-                if(chute == letra):
-                    letras_acertadas[index] = letra
-                    print("Encontrei a letra {} na posição {}".format(letra, index))
-                index += 1
-            
+            marca_chute_correto(chute, letras_acertadas, palavra_secreta)
         else:
             erros += 1
 
@@ -32,13 +26,32 @@ def jogar():
         acertou = "_" not in letras_acertadas
     
     if (acertou):
-        print ("Você ganhou!!!!!")
+        imprime_mensagem_vendedor()
+        
     else:
-        print ("Você perdeu...")
-    print ("Fim do jogo!")
+        imprime_mensagem_perdedor()
+        
+    
 
+def pede_chute():
+    chute = input("Entre uma letra: ")
+    chute = chute.strip().upper()
+    return chute
 
+def marca_chute_correto(chute, letras_acertadas, palavra_secreta):
+    index = 0
+    for letra in palavra_secreta:
+        if(chute == letra):
+            letras_acertadas[index] = letra
+            print("Encontrei a letra {} na posição {}".format(letra, index))
+        index += 1
 
+def imprime_mensagem_vendedor():
+    print ("Você ganhou!!!!!")
+
+def imprime_mensagem_perdedor():
+    print ("Você perdeu...")
+    #print ("Fim do jogo!")
 
 def imprime_abertura():
     print ("*******************************")
