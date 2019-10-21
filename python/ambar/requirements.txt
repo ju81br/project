@@ -4,7 +4,7 @@ Flask-RESTful==0.3.7
 Jinja2==2.10
 MarkupSafe==1.1.1
 PyYAML==5.1
-Werkzeug==0.15.1
+Werkzeug==0.15.3
 aniso8601==6.0.0
 astroid==1.6.5
 certifi==2019.3.9
